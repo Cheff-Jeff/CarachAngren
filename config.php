@@ -1,3 +1,3 @@
 <?php
-$host = "http://localhost/";
+$host = "http://cheffjeff.nl/CA/";
 $root = dirname(__FILE__);
