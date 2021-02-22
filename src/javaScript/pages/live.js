@@ -17,7 +17,11 @@ $(document).ready(function(){
         }
         else if($(this).hasClass('hide')){
           $(this).removeClass('hide');
-        }     
+        } 
+        if($(this)[0]['outerText'].includes('no upcomming')){
+          $(this).addClass('hide');
+          $(this).removeClass('active');
+        }    
       });
     }else{ 
       $('.Show').each(function (){
@@ -55,6 +59,7 @@ $(document).ready(function(){
 });  
 
 const loadMore = (filter) => {
+  let counter = 0;
   let xhr = new XMLHttpRequest();
   xhr.open('GET', '/src/php/api/getAllShows.api.php', true);
   xhr.onload = function() {
@@ -64,6 +69,9 @@ const loadMore = (filter) => {
       $('.shows')[0]['innerHTML'] = '';
 
       for(let i = 0; i < count; i++){
+        if(shows[i]['category'] == 'Upcomming'){
+          counter++;
+        }
         let obj = `
           <div class="row Show ${shows[i]['category']} ${filter == 'All' ? 'active' : ''} ${filter == shows[i]['category'] ? 'active' : 'hide'}">
             <div class="col-lg-2 order-lg-1 col-md-6 order-md-1 col-12 order-1 date">
@@ -96,6 +104,18 @@ const loadMore = (filter) => {
         `
         $('.shows')[0]['innerHTML'] += obj;
       }
+      if(counter == 0){
+        let noUpcomming = `
+        <div class="row Show showTxt Upcoming ${filter == 'Upcomming' ? 'active' : 'hide'}">
+          <div class="col-12">
+              <div class="noShow">
+                  <p>There are no upcomming live shows yet. Come back another time.</p>
+              </div>
+          </div>
+        </div>
+        `;
+        $('.shows')[0]['innerHTML'] += noUpcomming;
+      }
       loaded('less');
     }
   }
@@ -104,6 +124,7 @@ const loadMore = (filter) => {
 }
 
 const loadLess = (filter) => {
+  let counter = 0;
   let xhr = new XMLHttpRequest();
   xhr.open('GET', '/src/php/api/displayShows.api.php', true);
   xhr.onload = function() {
@@ -113,6 +134,9 @@ const loadLess = (filter) => {
       $('.shows')[0]['innerHTML'] = '';
 
       for(let i = 0; i < count; i++){
+        if(shows[i]['category'] == 'Upcomming'){
+          counter++;
+        }
         let obj = `
           <div class="row Show ${shows[i]['category']} ${filter == 'All' ? 'active' : ''} ${filter == shows[i]['category'] ? 'active' : 'hide'}">
             <div class="col-lg-2 order-lg-1 col-md-6 order-md-1 col-12 order-1 date">
@@ -144,6 +168,18 @@ const loadLess = (filter) => {
           </div>
         `
         $('.shows')[0]['innerHTML'] += obj;
+      }
+      if(counter == 0){
+        let noUpcomming = `
+        <div class="row Show showTxt Upcoming ${filter == 'Upcomming' ? 'active' : 'hide'}">
+          <div class="col-12">
+              <div class="noShow">
+                  <p>There are no upcomming live shows yet. Come back another time.</p>
+              </div>
+          </div>
+        </div>
+        `;
+        $('.shows')[0]['innerHTML'] += noUpcomming;
       }
       loaded('more');
     }

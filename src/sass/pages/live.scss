@@ -151,7 +151,7 @@
     .shows{
       .Show{
         &.active {
-          max-height: 200px;
+          max-height: 205px;
         }
         .button{
           width: 100%;
@@ -163,6 +163,12 @@
         }
         .venue{
           margin-bottom: 5px;
+        }
+        .innerCountry{
+          p{
+            display: inline-block;
+            margin: 8px 0;
+          }
         }
       }
     }

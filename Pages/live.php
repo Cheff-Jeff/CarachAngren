@@ -77,7 +77,7 @@
                 <div class="row Show showTxt Upcoming">
                     <div class="col-12">
                         <div class="noShow">
-                            <p>There are no Upcomming live shows yet. Come back another time.</p>
+                            <p>There are no upcomming live shows yet. Come back another time.</p>
                         </div>
                     </div>
                 </div>
