@@ -1,0 +1,170 @@
+@import '../variables';
+@import '../main.scss';
+@import '../responsive.scss';
+@import '../buttons';
+
+.Live{
+  margin-top: 80px;
+  .title{
+    padding-top: 25px;
+    padding-bottom: 25px;
+    width: 100%;
+    position: relative;
+    z-index: 10;   
+    background: $mainBG;
+    text-align: center;
+    h1{
+      font-size: 50px;
+      margin-bottom: 0px;
+      letter-spacing: 2px;
+    }
+  }
+
+  .shows{
+    .Show{
+      &:nth-child(even){
+        background: $black;
+      }
+      &.hide{
+        padding: 0;
+        border: 0px;
+        transition: padding .5s ease-in-out;
+        max-height: 0px;
+        transition: max-height .5s ease-in-out;
+        overflow: hidden;
+      }
+      &.active{
+        padding: 7px 0;
+        transition: padding .5s ease-in-out;
+        max-height: 80px;
+        transition: max-height .5s ease-in-out;
+      }
+      p{
+        color: $white;
+        font-size: 18px;
+        font-weight: normal;
+        margin-bottom: 0;
+        line-height: normal;
+      }
+      a{
+        transition: color .3s ease-in-out;
+        color: $red;
+        font-weight: 700;
+        font-size: 18px;
+        margin-bottom: 0;
+        &:hover{
+          text-decoration: none;
+          color: $white;
+        }
+      }
+      .date, .venue,
+      .country, .info, .tickets{
+        display: flex;
+        align-items: center;
+        div{
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .filter{
+    .btn-filter{
+      color: $white;
+      transition: color .3s ease-in-out;
+      margin-right: 15px;
+      font-size: 20px;
+      margin-bottom: 25px;
+      display: inline-block;
+      position: relative;
+      &::before{
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 0%;
+        transition: width .3s ease-in-out;
+        height: 2px;
+        background: $red;
+        z-index: 1;
+      }
+      &:hover{
+        transition: color .3s ease-in-out;
+        color: $red;
+        cursor: pointer;
+        &::before{
+          width: 100%;
+          transition: width .3s ease-in-out;
+        }
+      }
+      &.active{
+        color: $red;
+        &::before{
+          width: 100%;
+          transition: width .3s ease-in-out;
+        }
+      }
+    }
+  }
+  .loadingWrap{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 991px){
+  .Live{
+    .shows{
+      .Show{
+        &.active{
+          max-height: 145px;
+        }
+        .date{
+          align-items: flex-end;
+        }
+        .innerTickets{
+          .button{
+            min-width: 205px;
+            margin-bottom: 0px !important;
+          }
+        }
+        .innerCountry{
+          p{
+            margin-top: 5px;
+          }
+        }
+        .button{
+          min-height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 500px){
+  .Live{
+    .shows{
+      .Show{
+        &.active {
+          max-height: 200px;
+        }
+        .button{
+          width: 100%;
+          height: 35px;
+          min-height: unset;
+          span{
+            font-size: 16px;
+          }
+        }
+        .venue{
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+}

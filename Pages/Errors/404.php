@@ -1,9 +1,11 @@
 <?php 
     $Page = "404";
     $CSS = "404";
-    include('../../config.php');
-    include($root. "/Recources/PHP/Api/404.api.php");
-    include($root."/Pages/Templates/top.php");
+    if(is_null($root)){
+        include('../../config.php');
+    }
+    include($root. "/src/php/api/404.api.php");
+    include($root."/pages/templates/top.php");
 ?>
 <section class="errorWrapper">
     <div class="background">
@@ -17,5 +19,5 @@
     </div>
 </section>
 <?php 
-    include($root."/Pages/Templates/bottom.php")
+    include($root."/pages/templates/bottom.php")
 ?>

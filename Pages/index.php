@@ -2,9 +2,11 @@
     $Page = "Home";
     $CSS = "home";
     $JS = $CSS;
-    $plugin = 'simpleParallax.js/dist/simpleParallax.min.js';
-    include($root. "/Recources/PHP/Api/index.api.php");
-    include($root."/Pages/Templates/top.php");
+    if(is_null($root)){
+        include('../config.php');
+    }
+    include($root. "/src/php/api/index.api.php");
+    include($root."/pages/templates/top.php");
 ?>
 <section class="home section overTopImg" id="home">
     <div class="container">

@@ -20,25 +20,25 @@
             <ul class="browsers">
                 <li>
                     <a href="https://www.google.com/chrome/" target="_blank">
-                        <img src="/Recources/Img/Browsers/chrome.png" alt="chrome logo">
+                        <img src="/src/img/browsers/chrome.png" alt="chrome logo">
                         <p>Google Chrome</p>
                     </a>
                 </li>
                 <li>
                     <a href="https://www.mozilla.org/firefox/new/" target="_blank">
-                        <img src="/Recources/Img/Browsers/firefox.png" alt="firefox logo">
+                        <img src="/src/img/browsers/firefox.png" alt="firefox logo">
                         <p>Mozilla Firefox</p>
                     </a>
                 </li>
                 <li>
                     <a href="https://www.microsoft.com/edge" target="_blank">
-                        <img src="/Recources/Img/Browsers/edge.png" alt="edge logo">
+                        <img src="/src/img/browsers/edge.png" alt="edge logo">
                         <p>Microsoft Edge</p>
                     </a>
                 </li>
                 <li>
                     <a href="https://www.opera.com/" target="_blank">
-                        <img src="/Recources/Img/Browsers/opera.png" alt="opera logo">
+                        <img src="/src/img/browsers/opera.png" alt="opera logo">
                         <p>Opera</p>
                     </a>
                 </li>

@@ -10,7 +10,7 @@ if (preg_match('~MSIE|Internet Explorer~i', $ua) || (strpos($ua, 'Trident/7.0; r
 }
 
 if(empty($_SESSION['menu'])){
-    include($root."/Recources/PHP/Api/getMenu.api.php");
+    include($root."/src/php/api/getMenu.api.php");
     GetMenu($host);          
 }  
 
@@ -32,15 +32,15 @@ foreach($menuItems as $menuItem){
 
 switch ($request) {
     case '/' :
-        require __DIR__ . '/Pages/index.php';
+        require __DIR__ . '/pages/index.php';
         die();
         break;
     case '/home' :
-        require __DIR__ . '/Pages/index.php';
+        require __DIR__ . '/pages/index.php';
         die();
         break;
     case '' :
-        require __DIR__ . '/Pages/index.php';
+        require __DIR__ . '/pages/index.php';
         die();
         break;
     case '/wp' :
@@ -53,7 +53,7 @@ switch ($request) {
         break;
     default:
         http_response_code(404);
-        require __DIR__ . '/Pages/Errors/404.php';
+        require __DIR__ . '/pages/errors/404.php';
         die();
         break;
 }

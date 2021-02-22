@@ -2,8 +2,11 @@
     $Page = "Live";
     $CSS = "live";
     $JS = $CSS;
-    include($root. "/Recources/PHP/Api/live.api.php");
-    include($root."/Pages/Templates/top.php");
+    if(is_null($root)){
+        include('../config.php');
+    }
+    include($root. "/src/php/api/live.api.php");
+    include($root."/pages/templates/top.php");
 ?>
 <section class="Live">
     <div class="container">
@@ -20,8 +23,9 @@
             <a class="btn-filter active" id="Upcoming">Upcomming</a>
         </div>
         <div class="shows">
+            <?php $upcomming = 0; ?>
             <?php foreach($Shows as $Show): ?>
-                <div class="row Show <?=$Show['category']?> <?php if($Show['category'] == 'Past'){ echo "hide"; } ?>">
+                <div class="row Show <?=$Show['category']?> <?php if($Show['category'] == 'Past'){ echo "hide"; }else{$upcomming++;} ?>">
                     <div class="col-lg-2 order-lg-1 col-md-6 order-md-1 col-12 order-1 date">
                         <div class="innerDate">
                             <p><?=$Show['data']?></p>
@@ -69,6 +73,22 @@
                     </div>
                 </div>
             <?php endforeach ?>
+            <?php if($upcomming == 0): ?>
+                <div class="row Show showTxt Upcoming">
+                    <div class="col-12">
+                        <div class="noShow">
+                            <p>There are no Upcomming live shows yet. Come back another time.</p>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="loadingWrap">
+                    <a href="#" class="more btnLoading">Load more</a>
+                </div>
+            </div>
         </div>
     </div>
 </section>

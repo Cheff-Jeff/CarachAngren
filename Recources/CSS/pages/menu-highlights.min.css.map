@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAIC,UAJS,CAIT,CAAC,AAAA,mBAAmB,CAJrB,UAAU,CAKT,EAAE,AAAA,mBAAmB,CAAG,CAAC,AAAA,SAAS,CALnC,UAAU,CAMT,WAAW,CAAG,EAAE,AAAA,mBAAmB,AAAC,CACnC,gBAAgB,CANJ,OAAO,CAMW,UAAU,CACxC,AARF,AAUC,UAVS,CAUT,EAAE,AAAA,mBAAmB,CAAG,CAAC,AAAC,CACzB,KAAK,CATC,IAAI,CASG,UAAU,CAKvB,AAhBF,AAaE,UAbQ,CAUT,EAAE,AAAA,mBAAmB,CAAG,CAAC,CAGxB,GAAG,AAAA,cAAc,AAAA,QAAQ,AAAC,CACzB,KAAK,CAZA,qBAAI,CAaT,AAfH,AAkBC,UAlBS,CAkBT,qBAAqB,AAAC,CACrB,OAAO,CAAE,IAAI,CACb",
-    "sources": [
-        "../../../wordpress/wp-content/plugins/admin-menu-editor/modules/highlight-new-menus/assets/menu-highlights.scss"
-    ],
-    "names": [],
-    "file": "menu-highlights.min.css"
-}

@@ -1,5 +1,5 @@
 <?php
-    include($root."/Recources/PHP/Api/footer.api.php");
+    include($root."/src/php/api/footer.api.php");
     if(!empty($_SESSION['footer'])){
         $footerTxt = $_SESSION['footer'];
     }
@@ -63,7 +63,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="copy-inner">
-                    <span>© 2020 Carach Angren All Rights Reserved - </span>
+                    <span>© 2021 Carach Angren All Rights Reserved - </span>
                     <span>Website realization by <a href="https://cheffjeff.nl" target="_black">CheffJeff.nl</a></span>
                 </div>
             </div>
@@ -77,12 +77,7 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <!-- end jquery -->
-    <script src="/Recources/JSmini/main.min.js"></script>
     <?php if(!empty($JS)): ?>
-        <script src="/Recources/JSmini/<?= $JS?>.min.js"></script>
-    <?php endif ?>
-    <!-- plugin's -->
-    <?php if(!empty($plugin)): ?>
-        <script src="/Recources/JS/<?=$plugin?>" type="text/javascript"></script>
+        <script src="/dist/js/<?= $JS?>.js"></script>
     <?php endif ?>
 </html>
