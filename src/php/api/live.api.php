@@ -14,17 +14,24 @@ for($i = 0; $i < count($data); $i++){
         case 'live':
             $txt1 = $data[$i]['title']['rendered'];
             break;
+        case 'no-shows':
+            $txtNoShow = $data[$i]['content']['rendered'];
+            break;
         default:
             break;
     }
 }
+
+$link = $host."/wordpress/wp-json/wp/v2/categories";
+$dataPrep = file_get_contents($link);
+$categories = json_decode($dataPrep, true);
 
 //Dev
 include($root."/src/php/api/getShows.api.php");
 GetShows($host);
  
 $Shows = $_SESSION['Shows'];   
-$categorys = $_SESSION['Categorys'];    
+$categorys = $_SESSION['Categorys'];
 
 //Live
 // if(!empty($_SESSION['Shows'])){

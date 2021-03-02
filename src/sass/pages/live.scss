@@ -65,6 +65,18 @@
           width: 100%;
         }
       }
+      &.showTxt{
+        background: $mainBG;
+        .noShow{
+          text-align: center;
+          display: block;
+          margin: 20px 0;
+          p{
+            font-size: 22px;
+            letter-spacing: 1px;
+          }
+        }
+      }
     }
   }
 

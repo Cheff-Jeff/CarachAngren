@@ -1,7 +1,11 @@
 import '../main';
+let txtNoShow; 
 
 $(document).ready(function(){
   let filter = 'Upcomming';
+  if($('.noShow').length > 0){
+    txtNoShow = $('.noShow')[0]['innerText'];
+  }
 
   $('.btn-filter').click(function(){
     let cat = $(this).attr('id');
@@ -17,8 +21,8 @@ $(document).ready(function(){
         }
         else if($(this).hasClass('hide')){
           $(this).removeClass('hide');
-        } 
-        if($(this)[0]['outerText'].includes('no upcomming')){
+        }  
+        if($(this).hasClass('showTxt')){
           $(this).addClass('hide');
           $(this).removeClass('active');
         }    
@@ -100,6 +104,13 @@ const loadMore = (filter) => {
                 : '<a href="'+ shows[i]['showMore'] +'" target="_blank"><p>More information</p></a>'}
               </div>
             </div>
+            <div class="col-lg-3 order-lg-5 col-md-6 order-md-2 col-12 order-4 tickets">
+              <div class="innerTickets">
+                ${shows[i]['tickets'] != ''
+                ? '<a href="'+ shows[i]['tickets'] +'" target="_blank" class="button"><span>Tickets</span></a>' 
+                : '<p>No tickets available.</p>'}
+              </div>
+            </div>
           </div>
         `
         $('.shows')[0]['innerHTML'] += obj;
@@ -109,7 +120,7 @@ const loadMore = (filter) => {
         <div class="row Show showTxt Upcoming ${filter == 'Upcomming' ? 'active' : 'hide'}">
           <div class="col-12">
               <div class="noShow">
-                  <p>There are no upcomming live shows yet. Come back another time.</p>
+                  <p>${txtNoShow}</p>
               </div>
           </div>
         </div>
@@ -165,6 +176,13 @@ const loadLess = (filter) => {
                 : '<a href="'+ shows[i]['showMore'] +'" target="_blank"><p>More information</p></a>'}
               </div>
             </div>
+            <div class="col-lg-3 order-lg-5 col-md-6 order-md-2 col-12 order-4 tickets">
+              <div class="innerTickets">
+                ${shows[i]['tickets'] != ''
+                ? '<a href="'+ shows[i]['tickets'] +'" target="_blank" class="button"><span>Tickets</span></a>' 
+                : '<p>No tickets available.</p>'}
+              </div>
+            </div>
           </div>
         `
         $('.shows')[0]['innerHTML'] += obj;
@@ -174,7 +192,7 @@ const loadLess = (filter) => {
         <div class="row Show showTxt Upcoming ${filter == 'Upcomming' ? 'active' : 'hide'}">
           <div class="col-12">
               <div class="noShow">
-                  <p>There are no upcomming live shows yet. Come back another time.</p>
+                  <p>${txtNoShow}</p>
               </div>
           </div>
         </div>

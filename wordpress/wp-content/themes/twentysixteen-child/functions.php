@@ -19,6 +19,16 @@ add_filter('use_block_editor_for_post_type', '__return_false', 10);
 
 define( 'DISALLOW_FILE_EDIT', true);
 
+function custom_login() {
+    echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/login/styles.css" />';
+}
+add_action('login_head', 'custom_login');
+
+function custom_login_logo_url() {
+    return get_bloginfo( 'url' );
+}
+add_filter( 'login_headerurl', 'custom_login_logo_url' );
+
 function remove_menus(){
     remove_menu_page( 'index.php' );                  //dashboard
     remove_menu_page( 'edit.php' );                   //Posts
@@ -50,7 +60,7 @@ function change_menus_position() {
 // redirect to website and not wordpress   
 add_filter( 'template_include', 'my_callback' );
 function my_callback() {
-    return $_SERVER['DOCUMENT_ROOT']."/Pages/index.php";
+    return $_SERVER['DOCUMENT_ROOT']."/pages/index.php";
 }
 
 // redirects

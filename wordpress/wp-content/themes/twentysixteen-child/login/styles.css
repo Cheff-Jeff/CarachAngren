@@ -1,0 +1,81 @@
+body.login{
+  background-image: url('img/background.jpg');
+  background-image: none,url('img/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+}
+body.login::before{
+  content: '';
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: -1;
+}
+body.login h1 a {
+  background-image: url('img/logo.png');
+  background-size: 320px;
+  width: 320px;
+  height: 45px;
+}
+body.login > div{
+  padding: 0 !important;
+}
+body.login form{
+  background: rgba(0,0,0,0);
+  border: none;
+  padding: 26px 24px 0px;
+}
+body.login form p label,
+body.login form .user-pass-wrap label{
+  color: white;
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+body.login form p input,
+body.login form .user-pass-wrap input{
+  color: white;
+  background: rgba(255,255,255,0.2)!important;
+}
+body.login form .user-pass-wrap button{
+  color: #00adf7;
+}
+body.login form p.forgetmenot{
+  display: none;
+}
+body.login form p.submit input.button{
+  width: 100%;
+  background: #007cba !important;
+  font-size: 15px;
+  transition: background ease-in-out .3s;
+  margin-top: 10px;
+}
+body.login form p.submit input.button:hover{
+  background: #016087 !important;
+  transition: background ease-in-out .3s;
+}
+body.login > div > p > a{
+  color: white !important;
+  font-size: 15px;
+}
+body.login > div > p > a:hover{
+  color: #0073aa !important;
+}
+
+body.login #login_error{
+  background: rgba(220, 50, 50, .3);
+  color: white;
+  font-size: 15px;
+}
+
+@media only screen and (max-width: 420px){
+  body.login{
+    background-position: 30%
+  }
+}

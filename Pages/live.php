@@ -19,8 +19,11 @@
         </div>
         <div class="filter">
             <a class="btn-filter" id="All">All</a>
-            <a class="btn-filter" id="Past">Past</a>
-            <a class="btn-filter active" id="Upcoming">Upcomming</a>
+            <?php foreach($categories as $category): ?>
+                <?php if($category['name'] != 'Uncategorized'): ?>
+                    <a class="btn-filter <?php if($category['name'] == 'Upcoming'){echo 'active';} ?>" id="<?=$category['name']?>"><?=$category['name']?></a>
+                <?php endif; ?>
+            <?php endforeach; ?>
         </div>
         <div class="shows">
             <?php $upcomming = 0; ?>
@@ -77,7 +80,7 @@
                 <div class="row Show showTxt Upcoming">
                     <div class="col-12">
                         <div class="noShow">
-                            <p>There are no upcomming live shows yet. Come back another time.</p>
+                            <p><?=$txtNoShow?></p>
                         </div>
                     </div>
                 </div>
