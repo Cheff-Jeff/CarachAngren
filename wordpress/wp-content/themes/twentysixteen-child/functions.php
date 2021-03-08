@@ -60,7 +60,7 @@ function change_menus_position() {
 // redirect to website and not wordpress   
 add_filter( 'template_include', 'my_callback' );
 function my_callback() {
-    return $_SERVER['DOCUMENT_ROOT']."/pages/index.php";
+    return $_SERVER['DOCUMENT_ROOT']."/carachangren/pages/index.php";
 }
 
 // redirects
