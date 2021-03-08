@@ -14,6 +14,7 @@ bundleTask = ()=> {
     entry: {
       home: './src/javaScript/pages/home.js',
       live: './src/javaScript/pages/live.js',
+      404: './src/javaScript/errors/404.js',
     },
     mode: 'production',
     output: {

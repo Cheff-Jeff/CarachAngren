@@ -1,6 +1,7 @@
 <?php 
     $Page = "404";
     $CSS = "404";
+    $JS = $CSS;
     if(is_null($root)){
         include('../../config.php');
     }
