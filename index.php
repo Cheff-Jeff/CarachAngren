@@ -10,8 +10,6 @@ if (preg_match('~MSIE|Internet Explorer~i', $ua) || (strpos($ua, 'Trident/7.0; r
 }
 
 if(empty($_SESSION['menu'])){
-    var_dump($root);
-    die();
     include($root."/src/php/api/getMenu.api.php");
     GetMenu($host);          
 }  
