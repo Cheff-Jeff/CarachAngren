@@ -89,11 +89,9 @@
 }
 
 @media only screen and (max-width: 450px){
-  .Videos{
-    .title-line-wrapper{
-      &::before{
-        display: none !important;
-      }
+  .title-line-wrapper{
+    &::before{ 
+      display: none !important;
     }
   }
   header{
