@@ -72,6 +72,32 @@
   }
 }
 
+.scrollTop{
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  &.hidden{
+    svg{
+      width: 0px;
+      transition: all .3s ease-in-out;
+    }
+  }
+  svg{
+    width: 30px;
+    transform: scale(1);
+    color: $white;
+    transition: all .3s ease-in-out;
+  }
+  &:hover{
+    cursor: pointer;
+    svg{
+      transform: scale(1.2);
+      color: $red;
+      transition: all .3s ease-in-out;
+    }
+  }
+}
+
 @-webkit-keyframes spin {
   0% {
     -webkit-transform: rotate(0deg);
