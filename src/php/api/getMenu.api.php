@@ -48,7 +48,7 @@ function GetMenu($host)
                 'parentId' => $menuItem['menu_item_parent'],
                 'itemId' => $menuItem['ID'],
                 'object' => $menuItem['object'],
-                'templateIpa' => 'http://localhost/wordpress/wp-json/wp/v2/'.$menuItem['object'].'?slug=template'
+                'templateIpa' => $host.'wordpress/wp-json/wp/v2/'.$menuItem['object'].'?slug=template'
             ];
             $subMenu[] = [
                 'Name' => $menuItem['title'],
@@ -57,7 +57,7 @@ function GetMenu($host)
                 'parentId' => $menuItem['menu_item_parent'],
                 'itemId' => $menuItem['ID'],
                 'object' => $menuItem['object'],
-                'templateIpa' => 'http://localhost/wordpress/wp-json/wp/v2/'.$menuItem['object'].'?slug=template'
+                'templateIpa' => $host.'wordpress/wp-json/wp/v2/'.$menuItem['object'].'?slug=template'
             ];
         }else{
             $menu[] = [
@@ -67,7 +67,7 @@ function GetMenu($host)
                 'hasChild' => null,
                 'itemId' => $menuItem['ID'],
                 'object' => $menuItem['object'],
-                'templateIpa' => 'http://localhost/wordpress/wp-json/wp/v2/'.$menuItem['object'].'?slug=template'
+                'templateIpa' => $host.'wordpress/wp-json/wp/v2/'.$menuItem['object'].'?slug=template'
             ];
         }
     }

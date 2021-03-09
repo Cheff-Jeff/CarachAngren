@@ -2,7 +2,7 @@ import '../main';
 let txtNoShow; 
 
 $(document).ready(function(){
-  let filter = 'Upcomming';
+  let filter = 'Upcoming';
   if($('.noShow').length > 0){
     txtNoShow = $('.noShow')[0]['innerText'];
   }
@@ -73,7 +73,7 @@ const loadMore = (filter) => {
       $('.shows')[0]['innerHTML'] = '';
 
       for(let i = 0; i < count; i++){
-        if(shows[i]['category'] == 'Upcomming'){
+        if(shows[i]['category'] == 'Upcoming'){
           counter++;
         }
         let obj = `
@@ -117,7 +117,7 @@ const loadMore = (filter) => {
       }
       if(counter == 0){
         let noUpcomming = `
-        <div class="row Show showTxt Upcoming ${filter == 'Upcomming' ? 'active' : 'hide'}">
+        <div class="row Show showTxt Upcoming ${filter == 'Upcoming' ? 'active' : 'hide'}">
           <div class="col-12">
               <div class="noShow">
                   <p>${txtNoShow}</p>
@@ -145,7 +145,7 @@ const loadLess = (filter) => {
       $('.shows')[0]['innerHTML'] = '';
 
       for(let i = 0; i < count; i++){
-        if(shows[i]['category'] == 'Upcomming'){
+        if(shows[i]['category'] == 'Upcoming'){
           counter++;
         }
         let obj = `
@@ -189,7 +189,7 @@ const loadLess = (filter) => {
       }
       if(counter == 0){
         let noUpcomming = `
-        <div class="row Show showTxt Upcoming ${filter == 'Upcomming' ? 'active' : 'hide'}">
+        <div class="row Show showTxt Upcoming ${filter == 'Upcoming' ? 'active' : 'hide'}">
           <div class="col-12">
               <div class="noShow">
                   <p>${txtNoShow}</p>

@@ -96,5 +96,5 @@
     </div>
 </section>
 <?php 
-    include($root."/Pages/Templates/bottom.php")
+    include($root."/pages/templates/bottom.php")
 ?>
