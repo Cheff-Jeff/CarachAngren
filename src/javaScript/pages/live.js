@@ -53,14 +53,22 @@ $(document).ready(function(){
     
     if(btn.includes("more")){
       loadMore(filter);
+      toggleScrollBtn('show');
     }
     else if(btn.includes("less")){
       loadLess(filter);
+      toggleScrollBtn('hide');
     }else{
       loaded('more');
     }
   });
-});  
+
+  $('.scrollTop').click(() => {
+    $('html, body').animate({
+      scrollTop: $('#topLocation').offset().top - 70
+    }, 1000);
+  });
+}); 
 
 const loadMore = (filter) => {
   let counter = 0;
@@ -214,4 +222,18 @@ const loading = () => {
 const loaded = (txt)=> {
   $('.btnLoading')[0]['innerHTML'] = `Load ${txt}`;
   return;
+}
+
+const toggleScrollBtn = (option) => {
+  let btn = $('.scrollTop');
+  if(option == 'hide'){
+    if(!btn.hasClass('hidden')){
+      btn.addClass('hidden');
+    }
+  }
+  else if(option == 'show'){
+    if(btn.hasClass('hidden')){
+      btn.removeClass('hidden');
+    }
+  }
 }
