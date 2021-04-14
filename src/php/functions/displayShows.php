@@ -4,7 +4,7 @@ if(isset($_SESSION['Shows'])){
   print json_encode($_SESSION['Shows']);
 }else{
   include '../../../config.php';
-  include 'getShows.api.php';
-  GetShows($host);
+  include 'getShows.php';
+  GetShows($host, $api, $root);
   print json_encode($_SESSION['Shows']);
 }

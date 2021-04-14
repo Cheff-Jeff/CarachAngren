@@ -53,11 +53,9 @@ $(document).ready(function(){
     
     if(btn.includes("more")){
       loadMore(filter);
-      toggleScrollBtn('show');
     }
     else if(btn.includes("less")){
       loadLess(filter);
-      toggleScrollBtn('hide');
     }else{
       loaded('more');
     }
@@ -73,7 +71,7 @@ $(document).ready(function(){
 const loadMore = (filter) => {
   let counter = 0;
   let xhr = new XMLHttpRequest();
-  xhr.open('GET', '/src/php/api/getAllShows.api.php', true);
+  xhr.open('GET', '/src/php/functions/getAllShows.php', true);
   xhr.onload = function() {
     if(this.status == 200){
       const shows = JSON.parse(this.responseText);
@@ -136,6 +134,7 @@ const loadMore = (filter) => {
         $('.shows')[0]['innerHTML'] += noUpcomming;
       }
       loaded('less');
+      toggleScrollBtn('show');
     }
   }
   xhr.send();
@@ -145,7 +144,7 @@ const loadMore = (filter) => {
 const loadLess = (filter) => {
   let counter = 0;
   let xhr = new XMLHttpRequest();
-  xhr.open('GET', '/src/php/api/displayShows.api.php', true);
+  xhr.open('GET', '/src/php/functions/displayShows.php', true);
   xhr.onload = function() {
     if(this.status == 200){
       const shows = JSON.parse(this.responseText);
@@ -208,6 +207,7 @@ const loadLess = (filter) => {
         $('.shows')[0]['innerHTML'] += noUpcomming;
       }
       loaded('more');
+      toggleScrollBtn('hide');
     }
   }
   xhr.send();

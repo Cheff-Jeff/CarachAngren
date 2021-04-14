@@ -1,9 +1,11 @@
 <?php
-function GetMenu($host)
+function GetMenu($host, $api, $root)
 {
-    $link = $host."wordpress/wp-json/wp/v2/menu";
-    $dataPrep = file_get_contents($link);
-    $menuItems = json_decode($dataPrep, true);
+    if(!function_exists('getData')){
+        include_once($root."/src/php/functions/dataLoader.php");
+    }
+    $link = $api."menu";
+    $menuItems = getData($link);
     $menuIds = array();
     $subMenu = array();
     $menu = array();
@@ -23,7 +25,7 @@ function GetMenu($host)
                 $navLink = $menuItem['url'];
             }else {
                 $hasParent = true;
-                $pageTile = str_replace(' ', '_', $menuItem['title']);
+                $pageTile = str_replace(' ', '-', $menuItem['title']);
                 $navLink = '/'.$menuIds[$menuItem['menu_item_parent']]['link'].$menuItem['url'];
             }
         }else{
@@ -35,7 +37,7 @@ function GetMenu($host)
                 }
             }else {
                 $hasParent = true;
-                $pageTile = str_replace(' ', '_', $menuItem['title']);
+                $pageTile = str_replace(' ', '-', $menuItem['title']);
                 $navLink = '/'.$menuIds[$menuItem['menu_item_parent']]['link'].'/'.strtolower($pageTile);
             }
         }

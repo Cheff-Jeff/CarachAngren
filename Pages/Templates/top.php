@@ -3,8 +3,8 @@
         $menuItems = $_SESSION['menu'];
     }
     else{
-        include($root."/src/php/api/getMenu.api.php");
-        GetMenu($host);
+        include($root."/src/php/functions/getMenu.php");
+        GetMenu($host, $api, $root);
         $menuItems = $_SESSION['menu'];
     }
     if(!empty($_SESSION['subMenu'])){

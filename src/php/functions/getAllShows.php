@@ -1,13 +1,23 @@
 <?php
-function GetShows($host)
-{
-    $ShowItems = array();
-    $categorys = array();
-    $count = 0;
+include '../../../config.php';
+if(!function_exists('getData')){
+    include_once($root."/src/php/functions/dataLoader.php");
+}
+$link = $api."home";
+$data = getData($link);
 
-    $linkShows = $host."wordpress/wp-json/wp/v2/shows?per_page=15";
-    $dataPrepShows = file_get_contents($linkShows);
-    $ShowsDatas = json_decode($dataPrepShows, true);
+$page = 1;
+$count = 0;
+$ShowItems = array();
+$categorys = array();
+
+do{
+    $linkShows = $api."shows?per_page=100&page=".$page;
+    if (!$dataPrepShows = @file_get_contents($linkShows)) { 
+        break;
+    }
+    $ShowsDatas = getData($linkShows);
+    $page++;
 
     foreach($ShowsDatas as $ShowsData){
         if(!empty($ShowsData['acf']['date'])){
@@ -74,7 +84,6 @@ function GetShows($host)
         }
         $count++;
     }
+}while($dataPrepShows == true);
 
-    $_SESSION['Shows'] = $ShowItems;
-    $_SESSION['Categorys'] = $categorys;
-}
+print json_encode($ShowItems);

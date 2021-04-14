@@ -1,7 +1,9 @@
 <?php
-$link = $host."/wordpress/wp-json/wp/v2/live";
-$dataPrep = file_get_contents($link);
-$data = json_decode($dataPrep, true);
+if(!function_exists('getData')){
+    include_once($root."/src/php/functions/dataLoader.php");
+}
+$link = $api."live";
+$data = getData($link);
 
 for($i = 0; $i < count($data); $i++){
     switch ($data[$i]['slug']){
@@ -22,13 +24,12 @@ for($i = 0; $i < count($data); $i++){
     }
 }
 
-$link = $host."/wordpress/wp-json/wp/v2/categories";
-$dataPrep = file_get_contents($link);
-$categories = json_decode($dataPrep, true);
+$link = $api."categories";
+$categories = getData($link);
 
 //Dev
-include($root."/src/php/api/getShows.api.php");
-GetShows($host);
+include_once($root."/src/php/functions/getShows.php");
+GetShows($host, $api, $root);
  
 $Shows = $_SESSION['Shows'];   
 $categorys = $_SESSION['Categorys'];
@@ -39,8 +40,8 @@ $categorys = $_SESSION['Categorys'];
 //     $categorys = $_SESSION['Categorys'];
 // }
 // else{
-//     include($_SERVER['DOCUMENT_ROOT']."/Recources/PHP/Api/getShows.api.php");
-//     GetShows($host);
+//     include_once($root."/src/php/functions/getShows.php");
+//     GetShows($host, $api, $root);
 //     $Shows = $_SESSION['Shows'];   
 //     $categorys = $_SESSION['Categorys'];    
 // }

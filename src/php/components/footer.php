@@ -1,17 +1,17 @@
 <?php
-$link5 = $host."wordpress/wp-json/wp/v2/contact_info";
-$dataPrep = file_get_contents($link5);
-$contacts = json_decode($dataPrep,true);
+if(!function_exists('getData')){
+    include_once($root."/src/php/functions/dataLoader.php");
+}
+$link = $api."contact_info";
+$contacts = getData($link);
 
-$link6 = $host."wordpress/wp-json/wp/v2/socials";
-$dataPrep = file_get_contents($link6);
-$socials = json_decode($dataPrep,true);
+$link = $api."socials";
+$socials = getData($link);
 
-function GetFooter($host)
+function GetFooter($host, $api, $root)
 {
-    $linkFooter = $host."wordpress/wp-json/wp/v2/footer";
-    $dataPrep = file_get_contents($linkFooter);
-    $FooterItems = json_decode($dataPrep, true);
+    $link = $api."footer";
+    $FooterItems = getData($link);
     $footerTxts = array();
 
     for($i = 0; $i < count($FooterItems); $i++){

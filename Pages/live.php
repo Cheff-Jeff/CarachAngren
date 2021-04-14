@@ -5,7 +5,7 @@
     if(is_null($root)){
         include('../config.php');
     }
-    include($root. "/src/php/api/live.api.php");
+    include($root. "/src/php/pages/live.php");
     include($root."/pages/templates/top.php");
 ?>
 <section class="Live">

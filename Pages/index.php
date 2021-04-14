@@ -5,7 +5,7 @@
     if(is_null($root)){
         include('../config.php');
     }
-    include($root. "/src/php/api/index.api.php");
+    include($root. "/src/php/pages/index.php");
     include($root."/pages/templates/top.php");
 ?>
 <section class="home section overTopImg" id="home">

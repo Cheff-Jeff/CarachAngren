@@ -1,7 +1,9 @@
 <?php
-$link = $host."/wordpress/wp-json/wp/v2/home";
-$dataPrep = file_get_contents($link);
-$data = json_decode($dataPrep, true);
+if(!function_exists('getData')){
+    include_once($root."/src/php/functions/dataLoader.php");
+}
+$link = $api."home";
+$data = getData($link);
 
 for($i = 0; $i < count($data); $i++){
     switch ($data[$i]['slug']){
@@ -43,14 +45,11 @@ for($i = 0; $i < count($data); $i++){
     }
 }
 
-$link2 = $host."wordpress/wp-json/wp/v2/members";
-$dataPrep = file_get_contents($link2);
-$members = json_decode($dataPrep,true);
+$link = $api."members";
+$members = getData($link);
 
-$link3 = $host."wordpress/wp-json/wp/v2/releases";
-$dataPrep = file_get_contents($link3);
-$releases = json_decode($dataPrep,true);
+$link = $api."releases";
+$releases = getData($link);
 
-$link4 = $host."wordpress/wp-json/wp/v2/videos";
-$dataPrep = file_get_contents($link4);
-$videos = json_decode($dataPrep,true);
+$link = $api."videos";
+$videos = getData($link);

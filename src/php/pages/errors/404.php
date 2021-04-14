@@ -1,7 +1,9 @@
 <?php
-$link = $host."/wordpress/wp-json/wp/v2/404";
-$dataPrep = file_get_contents($link);
-$data = json_decode($dataPrep, true);
+if(!function_exists('getData')){
+    include_once($root."/src/php/functions/dataLoader.php");
+}
+$link = $api."404";
+$data = getData($link);
 
 for($i = 0; $i < count($data); $i++){
     switch ($data[$i]['slug']){

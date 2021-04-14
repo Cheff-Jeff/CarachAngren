@@ -1,18 +1,15 @@
 <?php
-include '../../../config.php';
-
-$page = 1;
-$count = 0;
-$ShowItems = array();
-$categorys = array();
-
-do{
-    $linkShows = $host."wordpress/wp-json/wp/v2/shows?per_page=100&page=".$page;
-    if (!$dataPrepShows = @file_get_contents($linkShows)) { 
-        break;
+function GetShows($host, $api, $root)
+{
+    if(!function_exists('getData')){
+        include_once($root."/src/php/functions/dataLoader.php");
     }
-    $ShowsDatas = json_decode($dataPrepShows, true);
-    $page++;
+    $link = $api."shows?per_page=15";
+    $ShowsDatas = getData($link);
+
+    $ShowItems = array();
+    $categorys = array();
+    $count = 0;
 
     foreach($ShowsDatas as $ShowsData){
         if(!empty($ShowsData['acf']['date'])){
@@ -79,6 +76,7 @@ do{
         }
         $count++;
     }
-}while($dataPrepShows == true);
 
-print json_encode($ShowItems);
+    $_SESSION['Shows'] = $ShowItems;
+    $_SESSION['Categorys'] = $categorys;
+}

@@ -1,10 +1,10 @@
 <?php
-    include($root."/src/php/api/footer.api.php");
+    include($root."/src/php/components/footer.php");
     if(!empty($_SESSION['footer'])){
         $footerTxt = $_SESSION['footer'];
     }
     else{
-        GetFooter($host);
+        GetFooter($host, $api, $root);
         $footerTxt = $_SESSION['footer'];   
     }
 ?>
