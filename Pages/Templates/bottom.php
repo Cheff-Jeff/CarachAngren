@@ -1,7 +1,7 @@
 <?php
     include($root."/src/php/components/footer.php");
     if(!empty($_SESSION['footer'])){
-        $footerTxt = $_SESSION['footer'];
+        $footerTxt = $_SESSION['footer']; 
     }
     else{
         GetFooter($host, $api, $root);
